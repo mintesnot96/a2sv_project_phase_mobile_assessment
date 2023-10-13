@@ -68,10 +68,11 @@ The app has been evaluated based on the following criteria:
 
 <img width="960" alt="1OnboardingPage" src="https://github.com/mintesnot96/a2sv_project_phase_mobile_assessment/assets/96992238/530fab97-ce7b-417f-acd0-06b640eccce9">
 
+<img width="960" alt="1homee" src="https://github.com/mintesnot96/a2sv_project_phase_mobile_assessment/assets/96992238/d1c2a595-d313-43bc-9c85-7176c115b2c6">
 
-<img width="960" alt="2" src="https://github.com/mintesnot96/a2sv_project_phase_mobile_assessment/assets/96992238/6bf445ea-f01e-479b-a43b-721d82bb469d">
+<img width="960" alt="2Home" src="https://github.com/mintesnot96/a2sv_project_phase_mobile_assessment/assets/96992238/5c35c9c5-9712-4f3e-bb54-8d9367b31e34">
 
-<img width="960" alt="d" src="https://github.com/mintesnot96/a2sv_project_phase_mobile_assessment/assets/96992238/78e1a1ae-38d2-4e49-8c44-e880808b29a7">
+<img width="960" alt="2homee" src="https://github.com/mintesnot96/a2sv_project_phase_mobile_assessment/assets/96992238/ab0bfdab-5de3-4a2d-8b51-de4219b0025d">
 
 <img width="960" alt="c" src="https://github.com/mintesnot96/a2sv_project_phase_mobile_assessment/assets/96992238/fd11360c-7114-4e93-be92-035d28839446">
 
