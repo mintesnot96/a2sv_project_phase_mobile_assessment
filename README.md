@@ -65,7 +65,8 @@ The app has been evaluated based on the following criteria:
 - Additional Features/Creativity: Any extra features or creative solutions were considered.
 
 ---
-<img width="960" alt="Screenshot 2023-10-13 154559" src="https://github.com/mintesnot96/a2sv_project_phase_mobile_assessment/assets/96992238/7b1119b4-9de2-46c3-8a0f-06279002844d">
+
+<img width="960" alt="1OnboardingPage" src="https://github.com/mintesnot96/a2sv_project_phase_mobile_assessment/assets/96992238/530fab97-ce7b-417f-acd0-06b640eccce9">
 
 
 <img width="960" alt="2" src="https://github.com/mintesnot96/a2sv_project_phase_mobile_assessment/assets/96992238/6bf445ea-f01e-479b-a43b-721d82bb469d">
