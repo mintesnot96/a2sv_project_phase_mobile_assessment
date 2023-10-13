@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:a2sv_project_phase_mobile_assessment/data/models/weather_response.dart';
-import 'package:a2sv_project_phase_mobile_assessment/data/repositories/weather_repository.dart';
+import 'package:a2sv_project_phase_mobile_assessment/domain/repositories/weather_repository.dart';
 
 part 'weather_event.dart';
 part 'weather_state.dart';

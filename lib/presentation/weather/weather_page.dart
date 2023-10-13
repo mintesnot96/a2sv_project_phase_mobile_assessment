@@ -12,6 +12,7 @@ class WeatherPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String query = '';
+
     return BlocConsumer<WeatherBloc, WeatherState>(
       listener: (context, state) {
         if (state is WeatherError) {
@@ -20,96 +21,103 @@ class WeatherPage extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => WeatherDetailPage(
-                      weatherResponse: state.weatherReponse,
-                    )),
+              builder: (context) => WeatherDetailPage(
+                weatherResponse: state.weatherReponse,
+              ),
+            ),
           );
         }
       },
       builder: (context, state) {
         return Scaffold(
           backgroundColor: Color.fromRGBO(245, 244, 255, 1),
-          // appBar: AppBar(title: const Text('Choose a city')),
           body: SafeArea(
-            child: Column(children: [
-              const Text(
-                'Choose a city',
-                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18,color: Color.fromRGBO(33, 23, 114, 1)),
-              ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: SearchWidget(onChanged: (val) {
-                        query = val;
-                      }),
-                    ),
-                    const SizedBox(
-                      width: 8,
-                    ),
-                    InkWell(
-                      onTap: () {
-                        context
-                            .read<WeatherBloc>()
-                            .add(FetchWeather(query: query));
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
+            child: Column(
+              children: [
+                const Text(
+                  'Choose a city',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w700,
+                    fontSize: 18,
+                    color: Color.fromRGBO(33, 23, 114, 1),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: SearchWidget(onChanged: (val) {
+                          query = val;
+                        }),
+                      ),
+                      const SizedBox(width: 8),
+                      InkWell(
+                        onTap: () {
+                          context.read<WeatherBloc>().add(FetchWeather(query: query));
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(15),
                             color: Color.fromRGBO(255, 186, 37, 1),
-                      ),
-                        child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 0, vertical: 0),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
                             child: SizedBox(
                               height: 40,
                               width: 80,
                               child: state is WeatherLoading
                                   ? Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          vertical: 5),
-                                      child: const Center(
-                                        child: CircularProgressIndicator(
-                                          color: Colors.white,
-                                          strokeWidth: 2,
-                                        ),
-                                      ),
-                                    )
+                                padding: const EdgeInsets.symmetric(vertical: 5),
+                                child: const Center(
+                                  child: CircularProgressIndicator(
+                                    color: Colors.white,
+                                    strokeWidth: 2,
+                                  ),
+                                ),
+                              )
                                   : Center(
-                                      child: const Text(
-                                        'Search',
-                                        style: TextStyle(color: Colors.white),
-                                      ),
-                                    ),
-                            )),
+                                child: const Text(
+                                  'Search',
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
                       ),
-                    )
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              const Align(
+                const Align(
                   alignment: Alignment.bottomLeft,
                   child: Padding(
                     padding: EdgeInsets.only(left: 10, bottom: 10),
                     child: Text(
                       'My Fav Cities',
-                      style: TextStyle(fontWeight: FontWeight.w500,color: Color.fromRGBO(33, 23, 114, 1)),
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        color: Color.fromRGBO(33, 23, 114, 1),
+                      ),
                     ),
-                  )),
-              Expanded(
-                child: ListView.builder(
+                  ),
+                ),
+                // ListView.builder for weather items
+                Expanded(
+                  child: ListView.builder(
                     shrinkWrap: true,
                     itemCount: 3,
                     itemBuilder: (context, index) {
-                      return const _WeatherItem(
-                          name: 'New Mexico, USA',
-                          temperature: '28',
-                          icon: Icon(Icons.sunny));
-                    }),
-              )
-            ]),
+                      return _WeatherItem(
+                        location: 'New Mexico, USA',
+                        temperature: '28°',
+                        icon: Icon(Icons.wb_sunny),
+                      );
+                    },
+                  ),
+                ),
+              ],
+            ),
           ),
         );
       },
@@ -118,12 +126,14 @@ class WeatherPage extends StatelessWidget {
 }
 
 class _WeatherItem extends StatelessWidget {
-  const _WeatherItem(
-      {super.key,
-      required this.name,
-      required this.temperature,
-      required this.icon});
-  final String name;
+  const _WeatherItem({
+    super.key,
+    required this.location,
+    required this.temperature,
+    required this.icon,
+  });
+
+  final String location;
   final String temperature;
   final Icon icon;
 
@@ -133,26 +143,30 @@ class _WeatherItem extends StatelessWidget {
       padding: const EdgeInsets.only(left: 8, right: 8, bottom: 15),
       child: Container(
         decoration: BoxDecoration(
-            color: Colors.white, borderRadius: BorderRadius.circular(8)),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(8),
+        ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(name),
+              Text(location),
               Row(
                 children: [
                   Text(
-                    '$temperature*',
+                    temperature,
                     style: const TextStyle(
-                        fontSize: 20, fontWeight: FontWeight.w700),
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
                   const SizedBox(
                     width: 10,
                   ),
-                  icon
+                  icon,
                 ],
-              )
+              ),
             ],
           ),
         ),
@@ -162,7 +176,11 @@ class _WeatherItem extends StatelessWidget {
 }
 
 class SearchWidget extends StatelessWidget {
-  const SearchWidget({super.key, required this.onChanged});
+  const SearchWidget({
+    super.key,
+    required this.onChanged,
+  });
+
   final Function(String val) onChanged;
 
   @override
@@ -189,6 +207,5 @@ class SearchWidget extends StatelessWidget {
         ],
       ),
     );
-    ;
   }
 }
