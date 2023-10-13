@@ -9,7 +9,9 @@ class WeatherDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor:  Color.fromRGBO(245, 244, 255, 1),
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios),
           onPressed: () {
@@ -36,7 +38,7 @@ class WeatherDetailPage extends StatelessWidget {
           Expanded(
             child: Container(
               decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 23, 71, 110),
+                  color: Color.fromRGBO(52, 39, 152, 1),
                   borderRadius: BorderRadius.only(topLeft: Radius.circular(25), topRight: Radius.circular(25))),
               child: ListView.builder(
                   shrinkWrap: true,

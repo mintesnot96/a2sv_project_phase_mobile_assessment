@@ -28,7 +28,7 @@ class WeatherPage extends StatelessWidget {
       },
       builder: (context, state) {
         return Scaffold(
-          backgroundColor: Color.fromARGB(255, 177, 195, 211),
+          backgroundColor: Color.fromRGBO(245, 244, 255, 1),
           // appBar: AppBar(title: const Text('Choose a city')),
           body: SafeArea(
             child: Column(children: [
@@ -100,9 +100,9 @@ class WeatherPage extends StatelessWidget {
               Expanded(
                 child: ListView.builder(
                     shrinkWrap: true,
-                    itemCount: 5,
+                    itemCount: 3,
                     itemBuilder: (context, index) {
-                      return _WeatherItem(
+                      return const _WeatherItem(
                           name: 'New Mexico, USA',
                           temperature: '28',
                           icon: Icon(Icons.sunny));
