@@ -9,11 +9,12 @@ class WeatherDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:  Color.fromRGBO(245, 244, 255, 1),
+      backgroundColor: Color.fromRGBO(245, 244, 255, 1),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios,color: Color.fromRGBO(33, 23, 114, 1)),
+          icon: const Icon(Icons.arrow_back_ios,
+              color: Color.fromRGBO(33, 23, 114, 1)),
           onPressed: () {
             Navigator.of(context).pop();
           },
@@ -27,8 +28,13 @@ class WeatherDetailPage extends StatelessWidget {
           child: Column(
         children: [
           Text(
-              'Temperature: ${weatherResponse.data.currentCondition.first.tempC}',style: TextStyle(color: Color.fromRGBO(33, 23, 114, 1)),),
-  Text('City: ${weatherResponse.data.request.first.query}' ,style: TextStyle(color: Color.fromRGBO(33, 23, 114, 1)),),
+            'Temperature: ${weatherResponse.data.currentCondition.first.tempC}',
+            style: TextStyle(color: Color.fromRGBO(33, 23, 114, 1)),
+          ),
+          Text(
+            'City: ${weatherResponse.data.request.first.query}',
+            style: TextStyle(color: Color.fromRGBO(33, 23, 114, 1)),
+          ),
           Container(
             height: 100,
             width: 100,
@@ -37,15 +43,36 @@ class WeatherDetailPage extends StatelessWidget {
           ),
           Expanded(
             child: Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   color: Color.fromRGBO(52, 39, 152, 1),
-                  borderRadius: BorderRadius.only(topLeft: Radius.circular(25), topRight: Radius.circular(25))),
-              child: ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: weatherResponse.data.weather.length,
-                  itemBuilder: (context, index) {
-                    return _weatherDayItem(weatherResponse.data.weather[index]);
-                  }),
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(25),
+                      topRight: Radius.circular(25))),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Padding(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                    child: Text(
+                      'Every day',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
+                      textAlign: TextAlign.left,
+                    ),
+                  ),
+                  ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: weatherResponse.data.weather.length,
+                      itemBuilder: (context, index) {
+                        return _weatherDayItem(
+                            weatherResponse.data.weather[index]);
+                      }),
+                ],
+              ),
             ),
           )
         ],
