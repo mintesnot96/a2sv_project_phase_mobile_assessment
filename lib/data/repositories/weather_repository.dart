@@ -3,11 +3,11 @@ import 'package:a2sv_project_phase_mobile_assessment/data/models/error_response.
 import 'package:a2sv_project_phase_mobile_assessment/data/models/weather_response.dart';
 import 'package:a2sv_project_phase_mobile_assessment/data/services/weather_service.dart';
 
-abstract class WeatherRepository {
+abstract class WeatherFacade {
   Future<Either<ErrorResponse, WeatherReponse>> fetchWeather(String query);
 }
 
-class WeatherRepositoryImpl implements WeatherRepository {
+class WeatherRepositoryImpl implements WeatherFacade {
   WeatherRepositoryImpl({required this.weatherService});
 
   final WeatherService weatherService;

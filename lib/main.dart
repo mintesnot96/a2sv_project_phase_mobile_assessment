@@ -40,75 +40,84 @@ class OnboardingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Color.fromRGBO(52, 39, 152, 1), // Background color (2E2294FF)
+        color: Color.fromRGBO(52, 39, 152, 1),
         child: Center(
           child: Padding(
             padding: const EdgeInsets.all(20.0),
             child: Column(
               children: [
-
                 Column(
                   children: [
                     SizedBox(
                       height: 170,
                     ),
-                    Image.asset('assets/wim.png', width: 250, height: 250),
+                    // Add a circular shadow around the image
+                    Container(
+                      width: 250,
+                      height: 250,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Color.fromRGBO(99, 91, 159, 1.0), // White color for the shadow
+                            spreadRadius: 0, // Adjust the spread radius as needed
+                            blurRadius: 1000, // Adjust the blur radius as needed
+                          ),
+                        ],
+                      ),
+                      child: Image.asset('assets/wim.png', width: 250, height: 250),
+                    ),
                   ],
                 ),
-
-                 const Column(
-                   crossAxisAlignment: CrossAxisAlignment.start,
-                   children: [
-
-                     Padding(
-
-                       padding: EdgeInsets.only(top: 30,bottom: 5),
-                       child: Text(
-                         'Weather',
-                         style: TextStyle(
-                           color: Color.fromRGBO(255, 186, 37, 1),
-
-                           fontWeight: FontWeight.bold,
-                           fontSize: 34,
-                         ),
-                         textAlign: TextAlign.left, // Align text to the left
-                       ),
-                     ),
-                     Padding(
-                       padding: EdgeInsets.only(top: 5,bottom: 5),
-                       child: Text(
-                         'Forecast App.',
-                         style: TextStyle(
-                           color: Colors.white,
-                           fontSize: 25,
-                         ),
-                         textAlign: TextAlign.left, // Align text to the left
-                       ),
-                     ),
-                     Text(
-                       "It's the app that has a bunch of features, and that includes most of what every weather app has.",
-                       style: TextStyle(color: Colors.white),
-                       textAlign: TextAlign.left, // Align text to the left
-                     ),
-                   ],
-                 ),
+                const Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(top: 30, bottom: 5),
+                      child: Text(
+                        'Weather',
+                        style: TextStyle(
+                          color: Color.fromRGBO(255, 186, 37, 1),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 34,
+                        ),
+                        textAlign: TextAlign.left,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top: 5, bottom: 5),
+                      child: Text(
+                        'Forecast App.',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 25,
+                        ),
+                        // textAlign: TextAlign left,
+                      ),
+                    ),
+                    Text(
+                      "It's the app that has a bunch of features, and that includes most of what every weather app has.",
+                      style: TextStyle(color: Colors.white),
+                      textAlign: TextAlign.left,
+                    ),
+                  ],
+                ),
                 Spacer(),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.pushReplacementNamed(context, '/home');
+                    // Your button code
                   },
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 20,right: 20),
+                    padding: const EdgeInsets.only(left: 20, right: 20),
                     child: Text('Get Started', style: TextStyle(color: Colors.white)),
                   ),
                   style: ElevatedButton.styleFrom(
-                    primary: Color.fromRGBO(255, 186, 37, 1), // Change the button background color to yellow
+                    primary: Color.fromRGBO(255, 186, 37, 1),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0), // Adjust the radius as needed
+                      borderRadius: BorderRadius.circular(10.0),
                     ),
                   ),
-                )
-
+                ),
               ],
             ),
           ),
