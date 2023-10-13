@@ -76,7 +76,7 @@ The app has been evaluated based on the following criteria:
 
 <img width="960" alt="2homee" src="https://github.com/mintesnot96/a2sv_project_phase_mobile_assessment/assets/96992238/ab0bfdab-5de3-4a2d-8b51-de4219b0025d">
 
-<img width="960" alt="c" src="https://github.com/mintesnot96/a2sv_project_phase_mobile_assessment/assets/96992238/fd11360c-7114-4e93-be92-035d28839446">
+<img width="960" alt="detail1" src="https://github.com/mintesnot96/a2sv_project_phase_mobile_assessment/assets/96992238/411d4a0b-8962-4dab-b8ea-4b74942443ee">
 
 
 
