@@ -65,7 +65,16 @@ The app has been evaluated based on the following criteria:
 - Additional Features/Creativity: Any extra features or creative solutions were considered.
 
 ---
-<img width="956" alt="Screenshot 2023-10-13 000657" src="https://github.com/mintesnot96/a2sv_project_phase_mobile_assessment/assets/96992238/97bd3182-9f3c-4924-a038-3976c1cef0db">
+<img width="960" alt="Screenshot 2023-10-13 154559" src="https://github.com/mintesnot96/a2sv_project_phase_mobile_assessment/assets/96992238/7b1119b4-9de2-46c3-8a0f-06279002844d">
+
+
+<img width="960" alt="2" src="https://github.com/mintesnot96/a2sv_project_phase_mobile_assessment/assets/96992238/6bf445ea-f01e-479b-a43b-721d82bb469d">
+
+<img width="960" alt="d" src="https://github.com/mintesnot96/a2sv_project_phase_mobile_assessment/assets/96992238/78e1a1ae-38d2-4e49-8c44-e880808b29a7">
+
+<img width="960" alt="c" src="https://github.com/mintesnot96/a2sv_project_phase_mobile_assessment/assets/96992238/fd11360c-7114-4e93-be92-035d28839446">
+
+
 
 
 Feel free to explore the source code and enjoy the "Weather App." If you have any questions or need further information, please don't hesitate to reach out.
