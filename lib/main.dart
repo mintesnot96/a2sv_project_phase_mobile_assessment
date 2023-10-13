@@ -6,14 +6,12 @@ import 'package:a2sv_project_phase_mobile_assessment/presentation/weather/weathe
 
 void main() async {
   await setupInjector();
-
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -26,7 +24,84 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: WeatherPage(),
+        initialRoute: '/',
+        routes: {
+          '/': (context) => OnboardingPage(),
+          '/home': (context) => WeatherPage(),
+        },
+      ),
+    );
+  }
+}
+
+class OnboardingPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        color: Color(0xFF2E2294), // Background color (2E2294FF)
+        child: Center(
+          child: Column(
+            children: [
+
+              Column(
+                children: [
+                  SizedBox(
+                    height: 200,
+                  ),
+                  Image.asset('assets/wim.png', width: 250, height: 250),
+                ],
+              ),
+
+               const Column(
+                 crossAxisAlignment: CrossAxisAlignment.start,
+                 children: [
+
+                   Padding(
+
+                     padding: EdgeInsets.only(top: 30,bottom: 5),
+                     child: Text(
+                       'Weather',
+                       style: TextStyle(
+                         color: Colors.amber,
+                         fontWeight: FontWeight.bold,
+                         fontSize: 24,
+                       ),
+                       textAlign: TextAlign.left, // Align text to the left
+                     ),
+                   ),
+                   Padding(
+                     padding: EdgeInsets.only(top: 5,bottom: 5),
+                     child: Text(
+                       'Forecast App',
+                       style: TextStyle(
+                         color: Colors.white,
+                         fontSize: 20,
+                       ),
+                       textAlign: TextAlign.left, // Align text to the left
+                     ),
+                   ),
+                   Text(
+                     "It's the app that has a bunch of features, and that includes most of what every weather app has.",
+                     style: TextStyle(color: Colors.white),
+                     textAlign: TextAlign.left, // Align text to the left
+                   ),
+                 ],
+               ),
+              Spacer(),
+              ElevatedButton(
+
+                onPressed: () {
+                  Navigator.pushReplacementNamed(context, '/home');
+                },
+                child: Text('Get Started',style: TextStyle(color: Colors.white),),
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.amber, // Change the button background color to yellow
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
