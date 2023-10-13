@@ -66,7 +66,8 @@ class OnboardingPage extends StatelessWidget {
                        child: Text(
                          'Weather',
                          style: TextStyle(
-                           color: Colors.amber,
+                           color: Color.fromRGBO(255, 186, 37, 1),
+
                            fontWeight: FontWeight.bold,
                            fontSize: 34,
                          ),
@@ -101,7 +102,7 @@ class OnboardingPage extends StatelessWidget {
                     child: Text('Get Started', style: TextStyle(color: Colors.white)),
                   ),
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.amber, // Change the button background color to yellow
+                    primary: Color.fromRGBO(255, 186, 37, 1), // Change the button background color to yellow
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0), // Adjust the radius as needed
                     ),

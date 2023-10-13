@@ -34,7 +34,7 @@ class WeatherPage extends StatelessWidget {
             child: Column(children: [
               const Text(
                 'Choose a city',
-                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
+                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18,color: Color.fromRGBO(33, 23, 114, 1)),
               ),
               Padding(
                 padding:
@@ -58,7 +58,8 @@ class WeatherPage extends StatelessWidget {
                       child: Container(
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(15),
-                            color: Colors.amber),
+                            color: Color.fromRGBO(255, 186, 37, 1),
+                      ),
                         child: Padding(
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 0, vertical: 0),
@@ -94,7 +95,7 @@ class WeatherPage extends StatelessWidget {
                     padding: EdgeInsets.only(left: 10, bottom: 10),
                     child: Text(
                       'My Fav Cities',
-                      style: TextStyle(fontWeight: FontWeight.w500),
+                      style: TextStyle(fontWeight: FontWeight.w500,color: Color.fromRGBO(33, 23, 114, 1)),
                     ),
                   )),
               Expanded(

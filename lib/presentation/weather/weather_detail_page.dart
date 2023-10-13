@@ -13,22 +13,22 @@ class WeatherDetailPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios),
+          icon: const Icon(Icons.arrow_back_ios,color: Color.fromRGBO(33, 23, 114, 1)),
           onPressed: () {
             Navigator.of(context).pop();
           },
         ),
         title: Text(weatherResponse.data.request.first.query),
         actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.favorite))
+          IconButton(onPressed: () {}, icon: const Icon(Icons.favorite_border))
         ],
       ),
       body: SafeArea(
           child: Column(
         children: [
           Text(
-              'Temperature: ${weatherResponse.data.currentCondition.first.tempC}'),
-          Text('City: ${weatherResponse.data.request.first.query}'),
+              'Temperature: ${weatherResponse.data.currentCondition.first.tempC}',style: TextStyle(color: Color.fromRGBO(33, 23, 114, 1)),),
+  Text('City: ${weatherResponse.data.request.first.query}' ,style: TextStyle(color: Color.fromRGBO(33, 23, 114, 1)),),
           Container(
             height: 100,
             width: 100,
