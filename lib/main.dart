@@ -55,7 +55,7 @@ class OnboardingPage extends StatelessWidget {
                     Container(
                       width: 250,
                       height: 250,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         shape: BoxShape.circle,
                         boxShadow: [
                           BoxShadow(
@@ -105,17 +105,18 @@ class OnboardingPage extends StatelessWidget {
                 Spacer(),
                 ElevatedButton(
                   onPressed: () {
+                    Navigator.pushReplacementNamed(context, '/home');
                     // Your button code
                   },
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 20, right: 20),
-                    child: Text('Get Started', style: TextStyle(color: Colors.white)),
-                  ),
                   style: ElevatedButton.styleFrom(
-                    primary: Color.fromRGBO(255, 186, 37, 1),
+                    primary: const Color.fromRGBO(255, 186, 37, 1),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
+                  ),
+                  child: const Padding(
+                    padding: EdgeInsets.only(left: 20, right: 20),
+                    child: Text('Get Started', style: TextStyle(color: Colors.white)),
                   ),
                 ),
               ],

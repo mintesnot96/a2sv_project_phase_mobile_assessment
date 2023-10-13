@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:a2sv_project_phase_mobile_assessment/presentation/weather/weather_detail_page.dart';
 
 class WeatherPage extends StatelessWidget {
-  WeatherPage({super.key});
+  WeatherPage({Key? key});
 
   final TextEditingController searchController = TextEditingController();
 
@@ -108,10 +108,16 @@ class WeatherPage extends StatelessWidget {
                     shrinkWrap: true,
                     itemCount: 3,
                     itemBuilder: (context, index) {
+                      final List<WeatherData> weatherData = [
+                        WeatherData(location: 'New Mexico, USA', temperature: '28°', iconAssetPath: 'assets/t1.png'),
+                        WeatherData(location: 'Paris, France', temperature: '25°', iconAssetPath: 'assets/t2.png'),
+                        WeatherData(location: 'Barcelona, Spain', temperature: '30°', iconAssetPath: 'assets/t3.png'),
+                      ];
+
                       return _WeatherItem(
-                        location: 'New Mexico, USA',
-                        temperature: '28°',
-                        icon: Icon(Icons.wb_sunny),
+                        location: weatherData[index].location,
+                        temperature: weatherData[index].temperature,
+                        iconAssetPath: weatherData[index].iconAssetPath,
                       );
                     },
                   ),
@@ -125,17 +131,29 @@ class WeatherPage extends StatelessWidget {
   }
 }
 
-class _WeatherItem extends StatelessWidget {
-  const _WeatherItem({
-    super.key,
+class WeatherData {
+  final String location;
+  final String temperature;
+  final String iconAssetPath;
+
+  WeatherData({
     required this.location,
     required this.temperature,
-    required this.icon,
+    required this.iconAssetPath,
+  });
+}
+
+class _WeatherItem extends StatelessWidget {
+  const _WeatherItem({
+    Key? key,
+    required this.location,
+    required this.temperature,
+    required this.iconAssetPath,
   });
 
   final String location;
   final String temperature;
-  final Icon icon;
+  final String iconAssetPath;
 
   @override
   Widget build(BuildContext context) {
@@ -156,15 +174,20 @@ class _WeatherItem extends StatelessWidget {
                 children: [
                   Text(
                     temperature,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.w700,
+                      color: Color.fromRGBO(33, 23, 114, 1), // Change the text color here
                     ),
                   ),
                   const SizedBox(
                     width: 10,
                   ),
-                  icon,
+                  Image.asset(
+                    iconAssetPath,
+                    width: 32,
+                    height: 32,
+                  ),
                 ],
               ),
             ],
@@ -175,9 +198,10 @@ class _WeatherItem extends StatelessWidget {
   }
 }
 
+
 class SearchWidget extends StatelessWidget {
   const SearchWidget({
-    super.key,
+    Key? key,
     required this.onChanged,
   });
 
